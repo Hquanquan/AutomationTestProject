@@ -9,16 +9,20 @@ import os
 
 import pytest
 
-if __name__ == '__main__':
-    # pytest.main(["-s"])
-    # pytest.main(["-s", "-k test_contractType.py"])
-
+def run():
     for one in os.listdir('report/tmp'):  # 列出对应文件夹的数据
         if 'json' in one:
             os.remove(f'report/tmp/{one}')
 
     pytest.main(['testcase', '-s', '--alluredir=report/tmp'])
     os.system('allure serve report/tmp')
+
+if __name__ == '__main__':
+    # pytest.main(["-s", "-k test_contractType.py"])
+
+    run()
+
+
 
 
 

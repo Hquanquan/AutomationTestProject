@@ -58,7 +58,6 @@ class Test_contractTypes:
         self.contractType_api = init_contract_type[0]
         contractTypes1 = self.contractType_api.list_all()
         res = self.contractType_api.delete("不存在的合同分类id")
-        print(res)
         contractTypes2 = self.contractType_api.list_all()
         assert contractTypes1 == contractTypes2
 

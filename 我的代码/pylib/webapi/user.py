@@ -47,5 +47,5 @@ class User:
 
 
 if __name__ == '__main__':
-    user = User("test_587@test.com", "123456")
+    user = User(email, password)
     print(user.login())

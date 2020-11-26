@@ -8,7 +8,9 @@
 
 import requests
 
-from 我的代码.conf.env import HOST, parent, password, email
+from 我的代码.conf.env import HOST, parent, email, password
+
+# from 我的代码.pylib.webapi.user import User
 from 我的代码.pylib.webapi.user import User
 
 
@@ -19,8 +21,9 @@ class OrganizAPI:
         self.space_id = self.cookies['X-Space-Id']  # 从cookies中获取spaceid
         self.host = HOST
         self.path = "/api/v4/organizations/"
+        self.parent = parent
 
-    def add(self, name):
+    def add(self, name, parent=None):
         """
         添加部门
         :param name: 部门名称
@@ -29,13 +32,20 @@ class OrganizAPI:
         :param sort_no: 排序，默认100
         :return:
         """
-        payload = {
+        data = {
             "name": name,
-            "parent": parent,
+            "parent": "parent",
             "sort_no": 100,
             "hidden": False,
             "space": self.space_id
         }
+
+        if parent:
+            data["parent"] = parent
+        else:
+            data["parent"] = self.parent
+
+        payload = data
         url = f"{self.host}{self.path}"
         resp = requests.post(url, json=payload, cookies=self.cookies)
         return resp.json()["value"][0]
@@ -79,15 +89,15 @@ class OrganizAPI:
             self.delete(org["_id"])
 
 
-# if __name__ == '__main__':
-#     cookies = User(email, password).login()
-#     org_api = OrganizAPI(cookies)
-#     new_org = org_api.add("测试部")
-#     print(type(new_org))
-#     org_api.edit(new_org["_id"], "测试开发部")
-#     org_api.delete(new_org["_id"])
-#     org_api.delete_all()
-#     orgs = org_api.list_all()
-#     for i in orgs:
-#         print(i)
+if __name__ == '__main__':
+    cookies = User(email, password).login()
+    org_api = OrganizAPI(cookies)
+    new_org = org_api.add("测试部")
+    print(type(new_org))
+    org_api.edit(new_org["_id"], "测试开发部")
+    org_api.delete(new_org["_id"])
+    org_api.delete_all()
+    orgs = org_api.list_all()
+    for i in orgs:
+        print(i)
 
