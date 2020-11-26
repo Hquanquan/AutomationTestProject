@@ -1,0 +1,19 @@
+OrganizAPI:
+  path: /api/v4/organizations
+  add: {
+    "name": name,
+    "parent": parent,
+    "sort_no": 100,
+    "hidden": False,
+    "space": self.space_id   #公司ID全局唯一，每个管理员不同
+    }
+  edit: {
+    "name": name,
+    "parent": parent,
+    "sort_no": 100,
+    "hidden": False,
+    "space": self.space_id
+  }
+
+ContractAPI:
+  path: /123/1123
