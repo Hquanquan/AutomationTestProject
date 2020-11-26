@@ -23,6 +23,6 @@ def init_contract_type(admin_login):
     contype_api = ContractTypesAPI(cookies)
     contype_api.delete_all()
     # 创建一个合同分类
-    cta = contype_api.add(name="购房合同", space="20201124")
-    yield cta
+    cta = contype_api.add(name="购房合同类型", space="20201124")
+    yield contype_api, cta
     contype_api.delete(cta["_id"])

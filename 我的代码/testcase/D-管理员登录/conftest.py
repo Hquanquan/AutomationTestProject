@@ -22,7 +22,6 @@ def admin_login():
 # 清除所有部门数据
 @pytest.fixture(scope='session')
 def empty_organiz(admin_login):
-    cookies = admin_login
-    org_api = OrganizAPI(cookies)
+    org_api = OrganizAPI(admin_login)
     org_api.delete_all()
     yield org_api

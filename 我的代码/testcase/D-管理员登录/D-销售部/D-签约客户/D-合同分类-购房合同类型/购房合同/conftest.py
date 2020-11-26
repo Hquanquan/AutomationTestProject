@@ -26,7 +26,7 @@ def init_contracts(admin_login, inin_organiz, init_accounts, init_contract_type)
     contracts_api.delete_all()
     new_contract = contracts_api.add(name="购房合同",
                                      othercompany=init_accounts[1]["_id"],
-                                     contract_type=init_contract_type["_id"],
+                                     contract_type=init_contract_type[1]["_id"],
                                      company_id=inin_organiz[1]["_id"],
                                      create_date=ConvertData.current_time())
     # create_date = ConvertData.current_time() 以特格式指定当前时间

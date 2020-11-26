@@ -1,7 +1,7 @@
 #!/usr/bin/python3.8
 # -*- coding: utf-8 -*-
 # @Time    : 2020/11/24 13:56
-# @File : test_contract.py 
+# @File : test_contract.py
 # @Author  : 黄权权
 # @Software: PyCharm
 # @Desc    : 测试合同类
@@ -52,7 +52,7 @@ class TestContract:
         self.new_contract = self.contracts_api.add(name=name,
                                                    amount=amount,
                                                    othercompany=init_accounts[1]["_id"],
-                                                   contract_type=init_contract_type["_id"],
+                                                   contract_type=init_contract_type[1]["_id"],
                                                    company_id=inin_organiz[1]["_id"])
         # 列出所有合同
         contracts = self.contracts_api.list_all()
@@ -86,7 +86,7 @@ class TestContract:
         # 创建一个新合同
         self.new_contract = self.contracts_api.add(name="租房合同",
                                                    othercompany=init_accounts[1]["_id"],
-                                                   contract_type=init_contract_type["_id"],
+                                                   contract_type=init_contract_type[1]["_id"],
                                                    company_id=inin_organiz[1]["_id"],
                                                    create_date=ConvertData.current_time(),
                                                    amount=10000,

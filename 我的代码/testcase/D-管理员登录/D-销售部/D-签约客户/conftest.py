@@ -7,7 +7,7 @@
 # @Desc    : None
 import pytest
 from 我的代码.pylib.webapi.accountsAPI import AccountsAPI
-
+from 我的代码.pylib.webapi.contractTypesAPI import ContractTypesAPI
 @pytest.fixture(scope="package")
 def init_accounts(admin_login, inin_organiz):
     """
@@ -30,3 +30,13 @@ def init_accounts(admin_login, inin_organiz):
     yield accounts_api, vip_account
     accounts_api.delete(vip_account["_id"])
 
+@pytest.fixture(scope="package")
+def empty_contractType(admin_login):
+    """
+    清除当前系统的中合同分类
+    :param admin_login:
+    :return:
+    """
+    contractType_api = ContractTypesAPI(admin_login)
+    contractType_api.delete_all()
+    yield contractType_api
