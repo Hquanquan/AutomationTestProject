@@ -1,0 +1,22 @@
+LoginPage:
+  email_input: ['id','email']
+  psw_input: ['id','password']
+  login_btn: ['css selector','button.MuiButton-containedPrimary']
+
+HomePage:
+  schedules: ['css selector','table.slds-table_resizable-cols td:nth-child(2)']
+
+SchedulePage:
+  new_btn: ['css selector','a[title="新建"]']
+  summary_input: ['css selector','[data-schema-key="name"]']
+  selectUser_box: ['css selector','.selectUser-box']
+  selected_users: ['css selector','#valueLabel li>a']
+  target_users: ['css selector','table[id*="DataTables_Table_"]>tbody td:nth-child(2)']
+  confirm_btn: ['id','confirm']
+  save_btn: ['css selector','button[type="submit"]']
+
+
+MainMenuPage:
+  schedule_link: ['css selector','.slds-context-bar ul>li:nth-last-child(1)']
+  avatar: ['css selector','span.slds-avatar_medium']
+  logout_btn: ['css selector','.slds-media__body span:nth-last-child(1)>a:nth-child(2)']

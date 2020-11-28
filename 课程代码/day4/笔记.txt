@@ -1,0 +1,13 @@
+新建用户流程
+右上角设置==》公司设置==》部门与用户==》点击邀请注册复制链接
+在新的浏览器窗口打开这个地址，进行注册
+
+
+    ID = "id"
+    XPATH = "xpath"
+    LINK_TEXT = "link text"
+    PARTIAL_LINK_TEXT = "partial link text"
+    NAME = "name"
+    TAG_NAME = "tag name"
+    CLASS_NAME = "class name"
+    CSS_SELECTOR = "css selector"

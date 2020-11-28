@@ -53,7 +53,7 @@ class TestAccounts:
             if item["_id"] == self.new_account["_id"]:
                 assert item["name"] == "V8客户"
 
-    @pytest.mark.skip("暂不执行")
+    # @pytest.mark.skip("暂不执行")
     @allure.story("签约对象-AccountsAPI-删除签约对象")
     @allure.title("删除签约对象测试用例tc001092")
     def test_tc001092(self, init_accounts):

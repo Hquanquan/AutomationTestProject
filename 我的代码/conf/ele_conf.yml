@@ -1,0 +1,13 @@
+BasePage:
+
+
+LoginPage:
+  email_input: ['id','email']
+  psw_input: ['id','password']
+  login_btn: ['css selector','button.MuiButton-containedPrimary']
+
+HomePage:
+  schedule_link: ['css selector','.slds-context-bar ul>li:nth-last-child(1)']
+
+SchedulePage:
+  new_btn: ['css selector','a[title="新建"]']

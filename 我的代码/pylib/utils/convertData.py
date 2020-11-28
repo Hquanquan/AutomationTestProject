@@ -13,14 +13,17 @@ from 我的代码.pylib.utils.commom import read_yaml
 class ConvertData:
 
     @staticmethod
-    def current_time(time_formate="%Y-%m-%dT%H:%M:%S.%f"):
+    def current_time(time_formate="%Y-%m-%dT%H:%M:%S.%f", tager=True):
         """
         获取当前时间，转换为指定的字符串格式返回
         :param time_formate: 格式
+        :param tager: 默认
         :return:
         """
         dt = datetime.datetime.now()
         current_time = dt.strftime(time_formate)
+        if not tager:
+            return current_time
         return current_time[:-3] + "Z"
 
     @staticmethod
